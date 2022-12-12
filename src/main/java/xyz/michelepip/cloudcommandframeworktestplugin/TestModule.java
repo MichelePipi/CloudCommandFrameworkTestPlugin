@@ -4,11 +4,10 @@ import cloud.commandframework.annotations.CommandDescription;
 import cloud.commandframework.annotations.CommandMethod;
 import cloud.commandframework.annotations.CommandPermission;
 import cloud.commandframework.exceptions.CommandExecutionException;
-import cloud.commandframework.exceptions.NoPermissionException;
 import org.bukkit.command.CommandSender;
 
-public class A {
-    @CommandPermission("net.kyori.a")
+public class TestModule {
+    @CommandPermission("cloudcommandframeworktestplugin.test")
     @CommandMethod("test")
     @CommandDescription("Test")
     public void a(
