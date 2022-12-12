@@ -1,0 +1,4 @@
+name: CloudCommandFrameworkTestPlugin
+version: '${project.version}'
+main: xyz.michelepip.cloudcommandframeworktestplugin.CloudCommandFrameworkTestPlugin
+api-version: 1.19
