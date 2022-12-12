@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class TestModule {
     @CommandPermission("cloudcommandframeworktestplugin.test")
-    @CommandMethod("test")
+    @CommandMethod("test <some_string>")
     @CommandDescription("Test")
     public void TestCommand(
             CommandSender sender,
