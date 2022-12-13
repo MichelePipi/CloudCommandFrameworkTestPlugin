@@ -7,6 +7,7 @@ import cloud.commandframework.bukkit.CloudBukkitCapabilities;
 import cloud.commandframework.execution.CommandExecutionCoordinator;
 import cloud.commandframework.meta.CommandMeta;
 import cloud.commandframework.minecraft.extras.MinecraftExceptionHandler;
+import cloud.commandframework.minecraft.extras.MinecraftHelp;
 import cloud.commandframework.paper.PaperCommandManager;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import net.kyori.adventure.text.Component;
@@ -17,7 +18,8 @@ import java.util.function.Function;
 
 public final class CloudCommandFrameworkTestPlugin extends JavaPlugin {
 
-    PaperCommandManager<CommandSender> commandManager;
+    private PaperCommandManager<CommandSender> commandManager;
+    private static MinecraftHelp<CommandSender> help;
 
     @Override
     public void onEnable() {
@@ -61,11 +63,21 @@ public final class CloudCommandFrameworkTestPlugin extends JavaPlugin {
                 .withCommandExecutionHandler()
                 .withDecorator(message -> Component.text("T").append(Component.space()).append(message))
                 .apply(commandManager, audiences::sender);
+
+        help = new MinecraftHelp<CommandSender>(
+                "/myplugin help",
+                audiences::sender,
+                commandManager
+        );
         // Plugin startup logic
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+    }
+
+    public static MinecraftHelp<CommandSender> getHelp() {
+        return help;
     }
 }
