@@ -11,6 +11,7 @@ on:
       - "README.md"
       - "docs/**"
 
+
 jobs:
   pre-release:
     name: "Pre-release"
