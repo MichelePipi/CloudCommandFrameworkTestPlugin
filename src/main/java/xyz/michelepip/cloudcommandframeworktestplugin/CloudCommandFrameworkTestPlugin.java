@@ -55,7 +55,7 @@ public final class CloudCommandFrameworkTestPlugin extends JavaPlugin {
                 .withInvalidSyntaxHandler()
                 .withNoPermissionHandler()
                 .withCommandExecutionHandler()
-                .withDecorator(message -> Component.text("T").append(Component.space()).append(message))
+                .withDecorator(message -> Component.text("").append(Component.space()).append(message))
                 .apply(commandManager, audiences::sender);
 
         help = new MinecraftHelp<CommandSender>(
@@ -70,6 +70,7 @@ public final class CloudCommandFrameworkTestPlugin extends JavaPlugin {
             throw new RuntimeException(e);
         }
         annotationParser.parse(new TestModule());
+        annotationParser.parse(new MyPluginModule());
         // Plugin startup logic
     }
 
