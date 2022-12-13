@@ -4,7 +4,7 @@ on:
   push:
     # Run on the main branch
     branches: 
-      - "main"
+      - "dev"
     # Ignore documentation
     paths-ignore:
       - ".idea"
