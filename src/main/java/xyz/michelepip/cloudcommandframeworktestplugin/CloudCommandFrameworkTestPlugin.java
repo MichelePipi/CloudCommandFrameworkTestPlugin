@@ -66,6 +66,7 @@ public final class CloudCommandFrameworkTestPlugin extends JavaPlugin {
 
     @Override
     public void onDisable() {
+
         // Plugin shutdown logic
     }
 }
