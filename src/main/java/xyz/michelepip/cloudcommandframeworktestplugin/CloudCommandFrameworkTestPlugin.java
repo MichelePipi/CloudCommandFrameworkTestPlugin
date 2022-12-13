@@ -47,12 +47,6 @@ public final class CloudCommandFrameworkTestPlugin extends JavaPlugin {
                 CommandSender.class,
                 commandMetaFunction
         );
-        try {
-            annotationParser.parseContainers();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        annotationParser.parse(new TestModule());
 
         BukkitAudiences audiences = BukkitAudiences.create(this);
         new MinecraftExceptionHandler<CommandSender>()
@@ -69,6 +63,13 @@ public final class CloudCommandFrameworkTestPlugin extends JavaPlugin {
                 audiences::sender,
                 commandManager
         );
+
+        try {
+            annotationParser.parseContainers();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        annotationParser.parse(new TestModule());
         // Plugin startup logic
     }
 
